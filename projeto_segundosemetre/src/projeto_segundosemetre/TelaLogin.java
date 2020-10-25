@@ -47,6 +47,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        setResizable(false);
 
         jButton1.setBackground(new java.awt.Color(51, 204, 0));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -76,7 +77,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("Oficina do Tião");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("F:\\Alex\\Imagens\\logo_oficina-removebg-preview.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoSemFundo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
