@@ -103,7 +103,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
