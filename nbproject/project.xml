@@ -5,7 +5,6 @@
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>projeto_segundosemetre</name>
             <source-roots>
-                <root id="src.projeto_segundosemetre1.dir"/>
                 <root id="src.dir"/>
             </source-roots>
             <test-roots>
