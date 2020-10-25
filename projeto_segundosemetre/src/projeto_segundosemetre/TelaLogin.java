@@ -77,7 +77,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("Oficina do Tião");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoSemFundo.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoSemFundo_1.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
