@@ -7,7 +7,7 @@
 
 <hr />
 <ul>
-	<li><strong>Alexsandro da Silva Ramos.</strong></li>
+	<li><strong>Alexsandro da Silva Ramos. (https://github.com/alexsandrosr88)</strong></li>
 	<li><strong>Carlos Henrique Pav&atilde;o In&aacute;cio (https://github.com/CarlosPavao)</strong></li>
 	<li><strong>Patricia Ferreira de Sousa.</strong></li>
 	<li><strong>Renan Ferreira Novaes.</strong></li>
