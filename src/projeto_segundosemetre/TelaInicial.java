@@ -37,9 +37,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         Novo = new javax.swing.JMenu();
-        novoFuncionario = new javax.swing.JMenuItem();
         novoCliente = new javax.swing.JMenuItem();
+        novoFuncionario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         jPopupMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -82,29 +84,23 @@ public class TelaInicial extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
+            .addGap(0, 469, Short.MAX_VALUE)
         );
 
-        Novo.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Icone\\NovoUsuario.png")); // NOI18N
-        Novo.setText("Novo");
+        Novo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar-ficheiro.png"))); // NOI18N
+        Novo.setText(" Novo");
+        Novo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Novo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Novo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Novo.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         Novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NovoActionPerformed(evt);
             }
         });
 
-        novoFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
-        novoFuncionario.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Icone\\icone 20x20\\Novo Funcionario1.png")); // NOI18N
-        novoFuncionario.setText("Funcionário");
-        novoFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoFuncionarioActionPerformed(evt);
-            }
-        });
-        Novo.add(novoFuncionario);
-
         novoCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        novoCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Icone\\icone 20x20\\Cliente.png")); // NOI18N
+        novoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/marketing.png"))); // NOI18N
         novoCliente.setText("Cliente");
         novoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,10 +109,34 @@ public class TelaInicial extends javax.swing.JFrame {
         });
         Novo.add(novoCliente);
 
+        novoFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        novoFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionario.png"))); // NOI18N
+        novoFuncionario.setText("Funcionário");
+        novoFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novoFuncionarioActionPerformed(evt);
+            }
+        });
+        Novo.add(novoFuncionario);
+
         jMenuBar1.add(Novo);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Icone\\orçamento.png")); // NOI18N
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Orçamento.png"))); // NOI18N
         jMenu2.setText("Orçamento");
+        jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu2.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        jMenuItem4.setText("Novo");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Andamento");
+        jMenu2.add(jMenuItem5);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -175,6 +195,10 @@ public class TelaInicial extends javax.swing.JFrame {
      
     }//GEN-LAST:event_jDesktopPane1MouseReleased
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,6 +244,8 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JMenuItem novoCliente;
