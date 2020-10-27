@@ -36,6 +36,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
         Novo = new javax.swing.JMenu();
         novoCliente = new javax.swing.JMenuItem();
         novoFuncionario = new javax.swing.JMenuItem();
@@ -86,6 +87,9 @@ public class TelaInicial extends javax.swing.JFrame {
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 469, Short.MAX_VALUE)
         );
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo32.png"))); // NOI18N
+        jMenuBar1.add(jMenu1);
 
         Novo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar-ficheiro.png"))); // NOI18N
         Novo.setText(" Novo");
@@ -239,6 +243,7 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Novo;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
