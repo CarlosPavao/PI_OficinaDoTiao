@@ -81,7 +81,7 @@ public class cliente {
         return data_nasci;
     }
 
-    public void setData_nasci(String data_nasc) {
+    public void setData_nasci(String data_nasci) {
         this.data_nasci = data_nasci;
     }
 
