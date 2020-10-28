@@ -597,8 +597,14 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         inseri.setCelular(txtCelular.getText().trim());
         dao.incluiClient(inseri);
         
-        
-        
+        txtNome.setText("");
+        txtDataNasci.setText("");
+        txtCpf.setText("");
+        txtRg.setText("");
+        txtEmail.setText("");
+        txtNaturalidade.setText("");
+        txtCelular.setText("");
+
         /*new TelaAutorizacao().setVisible(true);
         dispose();*/
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -642,6 +648,14 @@ public class NovoCliente extends javax.swing.JInternalFrame {
           inseri.setKm(txtKm.getText());
           inseri.setInformacoes(txtInforma.getText());
           
+        txtPlaca.setText("");
+        txtFabricante.setText("");
+        txtModelo.setText("");
+        txtAnoM.setText("");
+        txtAnoFab.setText("");
+        txtKm.setText("");
+        txtInforma.setText("");
+          
           dao.incluiCarro(inseri);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -657,6 +671,14 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         inseri.setCidade(txtCidade.getText().trim());
         inseri.setUf(txtUf2.getSelectedItem().toString().trim());
         dao.incluiEndere(inseri);
+        
+        txtCep.setText("");
+        txtLogra.setText("");
+        txtNumero.setText("");
+        txtComple.setText("");
+        txtBairro.setText("");
+        txtCidade.setText("");
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
