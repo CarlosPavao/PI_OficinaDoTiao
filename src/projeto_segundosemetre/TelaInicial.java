@@ -35,14 +35,20 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Novo = new javax.swing.JMenu();
         novoCliente = new javax.swing.JMenuItem();
         novoFuncionario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        OrdemServiço = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
 
         jPopupMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -77,15 +83,22 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/foto incial.jpeg"))); // NOI18N
+        jLabel1.setLabelFor(jDesktopPane1);
+
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1270, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo32.png"))); // NOI18N
@@ -126,22 +139,37 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuBar1.add(Novo);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Orçamento.png"))); // NOI18N
-        jMenu2.setText("Orçamento");
+        jMenu2.setText("Ordem de serviço");
         jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu2.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
-        jMenuItem4.setText("Novo");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        OrdemServiço.setText("Novo");
+        OrdemServiço.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                OrdemServiçoActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        jMenu2.add(OrdemServiço);
 
         jMenuItem5.setText("Andamento");
         jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Fornecedor");
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("relatorios");
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Clientes");
+        jMenuBar1.add(jMenu5);
+
+        jMenu6.setText("Funcionarios");
+        jMenuBar1.add(jMenu6);
+
+        jMenu7.setText("relátorio");
+        jMenuBar1.add(jMenu7);
 
         setJMenuBar(jMenuBar1);
 
@@ -199,9 +227,12 @@ public class TelaInicial extends javax.swing.JFrame {
      
     }//GEN-LAST:event_jDesktopPane1MouseReleased
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void OrdemServiçoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdemServiçoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+        OrdemDeServico telaCadUser = new OrdemDeServico();
+        jDesktopPane1.add(telaCadUser);
+        telaCadUser.setVisible(true);
+    }//GEN-LAST:event_OrdemServiçoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,14 +273,20 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Novo;
+    private javax.swing.JMenuItem OrdemServiço;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JTabbedPane jTabbedPane2;
