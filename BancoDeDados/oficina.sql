@@ -70,7 +70,6 @@ CREATE TABLE cliente (
     fk_endereco int,
     foreign key(fk_endereco) references endereco(id_endereco)
 );
-alter table cliente modify uf varchar(2) not null;
 CREATE TABLE fornecedor (
     id_fornecedor int PRIMARY KEY not null auto_increment,
     nome varchar(40) not null,
@@ -94,7 +93,6 @@ CREATE TABLE carro (
     foreign key(fk_cliente) references cliente(id_cliente),
     foreign key(fk_ordem_de_servico) references ordem_de_servico(id_servico)
 );
-alter table carro modify ano_modelo varchar(4) not null;
 
 select * from cliente;
 
