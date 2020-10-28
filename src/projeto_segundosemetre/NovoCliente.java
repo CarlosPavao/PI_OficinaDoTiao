@@ -211,11 +211,10 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         jLabel8.setText("Telefone:");
 
         try {
-            txtRg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtRg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtRg.setText("  .   .   -  ");
         txtRg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRgActionPerformed(evt);
@@ -584,7 +583,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         clienteDAO dao = new clienteDAO();
         inseri.setNome(txtNome.getText());
         inseri.setCpf(txtCpf.getText());
-        inseri.setData_nasci(txtDataNasc.getText());
+        inseri.setData_nasci(txtDataNasc.getSelectedText());
         inseri.setRg(txtRg.getText());
         inseri.setSexo(txtSexo.getSelectedItem().toString());
         inseri.setEmail(txtEmail.getText());
