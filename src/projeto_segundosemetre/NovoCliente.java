@@ -62,7 +62,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         cpf1 = new javax.swing.JScrollPane();
         txtEmail = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
+        botao_pessoa = new javax.swing.JButton();
         BotaoVoltar = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -86,7 +86,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         txtComple = new javax.swing.JTextPane();
         txtCpf = new javax.swing.JFormattedTextField();
         txtDataNasci = new javax.swing.JFormattedTextField();
-        jButton3 = new javax.swing.JButton();
+        botao_endereco = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -106,7 +106,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         txtInforma = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         txtKm = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        botao_carro = new javax.swing.JButton();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -163,10 +163,10 @@ public class NovoCliente extends javax.swing.JInternalFrame {
 
         cpf1.setViewportView(txtEmail);
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botao_pessoa.setText("Cadastrar");
+        botao_pessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botao_pessoaActionPerformed(evt);
             }
         });
 
@@ -254,10 +254,10 @@ public class NovoCliente extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
-        jButton3.setText("Cadastrar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botao_endereco.setText("Cadastrar");
+        botao_endereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botao_enderecoActionPerformed(evt);
             }
         });
 
@@ -300,7 +300,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel10)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1))
+                                    .addComponent(botao_pessoa))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -329,7 +329,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
                                 .addContainerGap()
                                 .addComponent(BotaoVoltar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3))
+                                .addComponent(botao_endereco))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addGap(18, 18, 18)
@@ -399,7 +399,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
                         .addGap(17, 17, 17)
                         .addComponent(jLabel13))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(botao_pessoa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(11, 11, 11)
@@ -425,7 +425,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoVoltar)
-                    .addComponent(jButton3))
+                    .addComponent(botao_endereco))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
 
@@ -450,10 +450,10 @@ public class NovoCliente extends javax.swing.JInternalFrame {
 
         jLabel30.setText("KM");
 
-        jButton2.setText("Cadastrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botao_carro.setText("Cadastrar");
+        botao_carro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botao_carroActionPerformed(evt);
             }
         });
 
@@ -513,7 +513,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
                                         .addComponent(txtKm, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(93, 93, 93)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botao_carro, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(79, 79, 79))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -552,7 +552,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(125, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botao_carro, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(133, 133, 133))
         );
 
@@ -581,7 +581,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUf2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botao_pessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao_pessoaActionPerformed
         // Botão cadastro
         cliente inseri = new cliente();
         clienteDAO dao = new clienteDAO();
@@ -607,7 +607,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
 
         /*new TelaAutorizacao().setVisible(true);
         dispose();*/
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botao_pessoaActionPerformed
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
         // TODO add your handling code here:
@@ -635,7 +635,7 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botao_carroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao_carroActionPerformed
           // Botão cadastra Carro:
           carro inseri = new carro();
           carroDAO dao = new carroDAO();
@@ -657,9 +657,9 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         txtInforma.setText("");
           
           dao.incluiCarro(inseri);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botao_carroActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void botao_enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao_enderecoActionPerformed
         // Botão  Cadastra endereco
         endereco inseri = new endereco();
         enderecoDAO dao = new enderecoDAO();
@@ -679,17 +679,17 @@ public class NovoCliente extends javax.swing.JInternalFrame {
         txtBairro.setText("");
         txtCidade.setText("");
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_botao_enderecoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoVoltar;
+    private javax.swing.JButton botao_carro;
+    private javax.swing.JButton botao_endereco;
+    private javax.swing.JButton botao_pessoa;
     private javax.swing.JScrollPane cpf1;
     private javax.swing.JScrollPane cpf2;
     private javax.swing.JScrollPane cpf4;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

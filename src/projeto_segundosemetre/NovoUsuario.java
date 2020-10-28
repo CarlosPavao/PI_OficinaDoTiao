@@ -5,7 +5,9 @@
  */
 package projeto_segundosemetre;
 
+import model.bean.endereco;
 import model.bean.funcionario;
+import model.dao.enderecoDAO;
 import model.dao.funcionarioDAO;
 
 /**
@@ -37,7 +39,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         cpf = new javax.swing.JScrollPane();
         txtCpf = new javax.swing.JTextPane();
-        CargoFuncionario = new javax.swing.JComboBox<>();
+        txtFuncao = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         BotaoVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -52,10 +54,10 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        nomeCompleto1 = new javax.swing.JTextPane();
+        txtCep = new javax.swing.JTextPane();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        nomeCompleto2 = new javax.swing.JTextPane();
+        txtLogra = new javax.swing.JTextPane();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         cpf1 = new javax.swing.JScrollPane();
@@ -69,15 +71,15 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         txtSexo = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        nomeCompleto3 = new javax.swing.JTextPane();
+        txtNumero = new javax.swing.JTextPane();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        nomeCompleto4 = new javax.swing.JTextPane();
+        txtBairro = new javax.swing.JTextPane();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
-        nomeCompleto5 = new javax.swing.JTextPane();
-        CargoFuncionario3 = new javax.swing.JComboBox<>();
+        txtCidade = new javax.swing.JTextPane();
+        txtUf2 = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         cpf3 = new javax.swing.JScrollPane();
@@ -91,7 +93,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         cpf9 = new javax.swing.JScrollPane();
         txtCelular = new javax.swing.JTextPane();
         cpf10 = new javax.swing.JScrollPane();
-        jTextPane11 = new javax.swing.JTextPane();
+        txtComple = new javax.swing.JTextPane();
         senha1 = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -109,10 +111,10 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
 
         cpf.setViewportView(txtCpf);
 
-        CargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Gerente", "Atendente", "Mecânico", "Dono" }));
-        CargoFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        txtFuncao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Gerente", "Atendente", "Mecânico", "Dono" }));
+        txtFuncao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CargoFuncionarioActionPerformed(evt);
+                txtFuncaoActionPerformed(evt);
             }
         });
 
@@ -155,11 +157,11 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jLabel11.setText("Dados Pessoais:");
 
-        jScrollPane6.setViewportView(nomeCompleto1);
+        jScrollPane6.setViewportView(txtCep);
 
         jLabel12.setText("Logradouro:");
 
-        jScrollPane7.setViewportView(nomeCompleto2);
+        jScrollPane7.setViewportView(txtLogra);
 
         jLabel13.setText("CEP:");
 
@@ -191,22 +193,22 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
 
         jLabel18.setText("RG:");
 
-        jScrollPane9.setViewportView(nomeCompleto3);
+        jScrollPane9.setViewportView(txtNumero);
 
         jLabel19.setText("Nº:");
 
         jLabel20.setText("Bairro");
 
-        jScrollPane10.setViewportView(nomeCompleto4);
+        jScrollPane10.setViewportView(txtBairro);
 
         jLabel21.setText("Cidade:");
 
-        jScrollPane11.setViewportView(nomeCompleto5);
+        jScrollPane11.setViewportView(txtCidade);
 
-        CargoFuncionario3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SP", "SE", "TO" }));
-        CargoFuncionario3.addActionListener(new java.awt.event.ActionListener() {
+        txtUf2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SP", "SE", "TO" }));
+        txtUf2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CargoFuncionario3ActionPerformed(evt);
+                txtUf2ActionPerformed(evt);
             }
         });
 
@@ -224,7 +226,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
 
         cpf9.setViewportView(txtCelular);
 
-        cpf10.setViewportView(jTextPane11);
+        cpf10.setViewportView(txtComple);
 
         jButton2.setText("Cadastrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -267,14 +269,14 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel22)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CargoFuncionario3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtUf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -340,7 +342,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10)
-                                .addGap(545, 545, 545)
+                                .addGap(542, 542, 542)
                                 .addComponent(jButton2)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -408,7 +410,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 20, Short.MAX_VALUE)
+                                        .addGap(0, 24, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel13)
                                             .addGroup(layout.createSequentialGroup()
@@ -424,29 +426,29 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                                     .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(17, 17, 17)
+                                    .addComponent(jLabel20))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel19))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUf2)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(0, 0, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel20)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel21)
                                             .addComponent(jLabel22)
-                                            .addComponent(CargoFuncionario3)))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel21))
-                                .addGap(11, 11, 11)))
+                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel23)
@@ -455,7 +457,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6))
                                 .addGap(18, 18, 18)
                                 .addComponent(BotaoVoltar)
@@ -466,14 +468,14 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                     .addComponent(jScrollBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        CargoFuncionario.getAccessibleContext().setAccessibleName("");
+        txtFuncao.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CargoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargoFuncionarioActionPerformed
+    private void txtFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFuncaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CargoFuncionarioActionPerformed
+    }//GEN-LAST:event_txtFuncaoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Botão cadastro
@@ -495,13 +497,13 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSexoActionPerformed
 
-    private void CargoFuncionario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargoFuncionario3ActionPerformed
+    private void txtUf2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUf2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CargoFuncionario3ActionPerformed
+    }//GEN-LAST:event_txtUf2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // botão cadastra funcionário
-                 funcionario inseri = new funcionario();
+        funcionario inseri = new funcionario();
         funcionarioDAO dao = new funcionarioDAO();
         
         inseri.setNome_funcionario(txtNome.getText().trim());
@@ -513,6 +515,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         inseri.setNaturalidade(txtNaturalidade.getText().trim());
         inseri.setUf(txtUf.getSelectedItem().toString().trim());
         inseri.setCelular(txtCelular.getText().trim());
+        inseri.setFuncao(txtFuncao.getSelectedItem().toString().trim());
         dao.incluiFuncionario(inseri);
         
         txtNome.setText("");
@@ -525,14 +528,29 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // Botao endereco
+        endereco inseri = new endereco();
+        enderecoDAO dao = new enderecoDAO();
+        inseri.setCep(txtCep.getText().trim());
+        inseri.setLogradouro(txtLogra.getText().trim());
+        inseri.setNumero(Integer.parseInt(txtNumero.getText().trim()));
+        inseri.setComplemento(txtComple.getText().trim());
+        inseri.setBairro(txtBairro.getText().trim());
+        inseri.setCidade(txtCidade.getText().trim());
+        inseri.setUf(txtUf2.getSelectedItem().toString().trim());
+        dao.incluiEndere(inseri);
+        
+        txtCep.setText("");
+        txtLogra.setText("");
+        txtNumero.setText("");
+        txtComple.setText("");
+        txtBairro.setText("");
+        txtCidade.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoVoltar;
-    private javax.swing.JComboBox<String> CargoFuncionario;
-    private javax.swing.JComboBox<String> CargoFuncionario3;
     private javax.swing.JScrollPane cpf;
     private javax.swing.JScrollPane cpf1;
     private javax.swing.JScrollPane cpf10;
@@ -576,24 +594,26 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextPane jTextPane11;
     private javax.swing.JTextPane jTextPane4;
     private javax.swing.JTextPane jTextPane6;
     private javax.swing.JTextPane jTextPane7;
-    private javax.swing.JTextPane nomeCompleto1;
-    private javax.swing.JTextPane nomeCompleto2;
-    private javax.swing.JTextPane nomeCompleto3;
-    private javax.swing.JTextPane nomeCompleto4;
-    private javax.swing.JTextPane nomeCompleto5;
     private javax.swing.JPasswordField senha1;
+    private javax.swing.JTextPane txtBairro;
     private javax.swing.JTextPane txtCelular;
+    private javax.swing.JTextPane txtCep;
+    private javax.swing.JTextPane txtCidade;
+    private javax.swing.JTextPane txtComple;
     private javax.swing.JTextPane txtCpf;
     private javax.swing.JTextPane txtDataNasci;
     private javax.swing.JTextPane txtEmail;
+    private javax.swing.JComboBox<String> txtFuncao;
+    private javax.swing.JTextPane txtLogra;
     private javax.swing.JTextPane txtNaturalidade;
     private javax.swing.JTextPane txtNome;
+    private javax.swing.JTextPane txtNumero;
     private javax.swing.JTextPane txtRg;
     private javax.swing.JComboBox<String> txtSexo;
     private javax.swing.JComboBox<String> txtUf;
+    private javax.swing.JComboBox<String> txtUf2;
     // End of variables declaration//GEN-END:variables
 }

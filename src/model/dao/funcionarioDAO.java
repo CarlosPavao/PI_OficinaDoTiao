@@ -23,7 +23,7 @@ public class funcionarioDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO funcionario(nome_func,email,naturalidade,celular,rg,cpf,sexo,uf,data_nasci) VALUES(?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO funcionario(nome_func,email,naturalidade,celular,rg,cpf,sexo,uf,data_nasci,funcao) VALUES(?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1,inseri.getNome_funcionario());
             stmt.setString(2,inseri.getEmail());
             stmt.setString(3,inseri.getNaturalidade());
@@ -33,6 +33,7 @@ public class funcionarioDAO {
             stmt.setString(7,inseri.getSexo());
             stmt.setString(8,inseri.getUf());
             stmt.setString(9,inseri.getData_nasci());
+            stmt.setString(9,inseri.getFuncao());
             
             stmt.executeUpdate();
 
