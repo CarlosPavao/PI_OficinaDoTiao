@@ -19,6 +19,7 @@ public class funcionario {
     private String cpf;
     private String uf;
     private String sexo;
+    private String data_nasci;
 
     public int getId_funcionario() {
         return id_funcionario;
@@ -91,4 +92,13 @@ public class funcionario {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+    public String getData_nasci() {
+        return data_nasci;
+    }
+
+    public void setData_nasci(String data_nasci) {
+        this.data_nasci = data_nasci;
+    }
+
 }

@@ -5,6 +5,9 @@
  */
 package projeto_segundosemetre;
 
+import model.bean.funcionario;
+import model.dao.funcionarioDAO;
+
 /**
  *
  * @author carlo
@@ -33,7 +36,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         jTextPane7 = new javax.swing.JTextPane();
         jLabel5 = new javax.swing.JLabel();
         cpf = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtCpf = new javax.swing.JTextPane();
         CargoFuncionario = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         BotaoVoltar = new javax.swing.JButton();
@@ -80,7 +83,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         cpf3 = new javax.swing.JScrollPane();
         jTextPane4 = new javax.swing.JTextPane();
         cpf4 = new javax.swing.JScrollPane();
-        jTextPane5 = new javax.swing.JTextPane();
+        txtNome = new javax.swing.JTextPane();
         cpf7 = new javax.swing.JScrollPane();
         jTextPane8 = new javax.swing.JTextPane();
         cpf8 = new javax.swing.JScrollPane();
@@ -104,7 +107,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Data de nascimento:");
 
-        cpf.setViewportView(jTextPane1);
+        cpf.setViewportView(txtCpf);
 
         CargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Gerente", "Atendente", "Mecânico", "Dono" }));
         CargoFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +216,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
 
         cpf3.setViewportView(jTextPane4);
 
-        cpf4.setViewportView(jTextPane5);
+        cpf4.setViewportView(txtNome);
 
         cpf7.setViewportView(jTextPane8);
 
@@ -497,7 +500,28 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_CargoFuncionario3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // botão cadastra funcionário
+                 funcionario inseri = new funcionario();
+        funcionarioDAO dao = new funcionarioDAO();
+        
+        inseri.setNome_funcionario(txtNome.getText().trim());
+        inseri.setCpf(txtCpf.getText().trim());
+        inseri.setData_nasci(txtDataNasci.getText().trim());
+        inseri.setRg(txtRg.getText().trim());
+        inseri.setSexo(txtSexo.getSelectedItem().toString().trim());
+        inseri.setEmail(txtEmail.getText().trim());
+        inseri.setNaturalidade(txtNaturalidade.getText().trim());
+        inseri.setUf(txtUf.getSelectedItem().toString().trim());
+        inseri.setCelular(txtCelular.getText().trim());
+        dao.incluiClient(inseri);
+        
+        txtNome.setText("");
+        txtDataNasci.setText("");
+        txtCpf.setText("");
+        txtRg.setText("");
+        txtEmail.setText("");
+        txtNaturalidade.setText("");
+        txtCelular.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -554,13 +578,11 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane10;
     private javax.swing.JTextPane jTextPane11;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane3;
     private javax.swing.JTextPane jTextPane4;
-    private javax.swing.JTextPane jTextPane5;
     private javax.swing.JTextPane jTextPane6;
     private javax.swing.JTextPane jTextPane7;
     private javax.swing.JTextPane jTextPane8;
@@ -571,5 +593,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextPane nomeCompleto4;
     private javax.swing.JTextPane nomeCompleto5;
     private javax.swing.JPasswordField senha1;
+    private javax.swing.JTextPane txtCpf;
+    private javax.swing.JTextPane txtNome;
     // End of variables declaration//GEN-END:variables
 }

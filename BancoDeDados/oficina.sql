@@ -28,6 +28,7 @@ create table funcionario(
             naturalidade varchar(30) not null,
             celular varchar(15) not null,
             rg varchar(11) unique not null,
+            data_nasci varchar(10) not null,
             cpf varchar(15) unique not null,
             sexo varchar(10) not null,
             uf varchar(2) not null,
@@ -36,7 +37,7 @@ create table funcionario(
             foreign key(fk_departamento) references departamento(id),
             foreign key(fk_endereco) references endereco(id_endereco)
             );
-
+alter table funcionario add data_nasci varchar(10) not null;
 CREATE TABLE caixa (
     id_venda int PRIMARY KEY not null auto_increment,
     data_venda date not null,
