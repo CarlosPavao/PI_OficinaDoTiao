@@ -23,7 +23,7 @@ public class clienteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO Cliente(nome,sexo,email,celular,rg,cpf,data_nasci,naturalidade,uf) VALUES(?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO cliente(nome,sexo,email,celular,rg,cpf,data_nasci,naturalidade,uf) VALUES(?,?,?,?,?,?,?,?,?)");
             stmt.setString(1,inseri.getNome());
             stmt.setString(2,inseri.getSexo());
             stmt.setString(3,inseri.getEmail());

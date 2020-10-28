@@ -45,7 +45,7 @@ public class TelaInicial extends javax.swing.JFrame {
         OrdemServiço = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
@@ -157,18 +157,19 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Fornecedor");
-        jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("relatorios");
-        jMenuBar1.add(jMenu4);
+        jMenu8.setText("Produtos");
+        jMenu3.add(jMenu8);
+
+        jMenuBar1.add(jMenu3);
 
         jMenu5.setText("Clientes");
         jMenuBar1.add(jMenu5);
 
-        jMenu6.setText("Funcionarios");
+        jMenu6.setText("Funcionários");
         jMenuBar1.add(jMenu6);
 
-        jMenu7.setText("relátorio");
+        jMenu7.setText("Relatórios");
         jMenuBar1.add(jMenu7);
 
         setJMenuBar(jMenuBar1);
@@ -279,10 +280,10 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
