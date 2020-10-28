@@ -23,22 +23,22 @@ public class clienteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO cliente (nome,sexo,email,celular,rg,cpf,data_nasc,naturalidade,uf) VALUES(?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO Cliente(nome,sexo,email,celular,rg,cpf,data_nasci,naturalidade,uf) VALUES(?,?,?,?,?,?,?,?,?)");
             stmt.setString(1,inseri.getNome());
             stmt.setString(2,inseri.getSexo());
             stmt.setString(3,inseri.getEmail());
             stmt.setString(4,inseri.getCelular());
             stmt.setString(5,inseri.getRg());
             stmt.setString(6,inseri.getCpf());
-            stmt.setString(7,inseri.getData_nasc());
+            stmt.setString(7,inseri.getData_nasci());
             stmt.setString(8,inseri.getNaturalidade());
             stmt.setString(9,inseri.getUf());
             
             stmt.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
-                    } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao inclui os dados!"+ex);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao inclui os dados!\n"+ex);
         }finally{
             connectionFactory.closeConnection(con,stmt);
         }

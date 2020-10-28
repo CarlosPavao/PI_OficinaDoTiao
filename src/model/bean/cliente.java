@@ -17,7 +17,7 @@ public class cliente {
     private String celular;
     private String rg;
     private String cpf;
-    private String data_nasc;
+    private String data_nasci;
     private String naturalidade;
     private String uf;
 
@@ -77,12 +77,12 @@ public class cliente {
         this.cpf = cpf;
     }
 
-    public String getData_nasc() {
-        return data_nasc;
+    public String getData_nasci() {
+        return data_nasci;
     }
 
-    public void setData_nasc(String data_nasc) {
-        this.data_nasc = data_nasc;
+    public void setData_nasci(String data_nasc) {
+        this.data_nasci = data_nasci;
     }
 
     public String getNaturalidade() {
