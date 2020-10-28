@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,7 +36,7 @@ public boolean validausuario(String login, String senha){
             }
             
         } catch (Exception ex) {
-            Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!\n"+ex);
         }finally{
             connectionFactory.closeConnection(con,stmt);
         }
