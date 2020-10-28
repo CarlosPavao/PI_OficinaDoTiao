@@ -56,19 +56,21 @@ CREATE TABLE ordem_de_servico (
     fk_venda int,
     foreign key(fk_venda) references caixa(id_venda)
 );
-CREATE TABLE Cliente (
+CREATE TABLE cliente (
     id_cliente int PRIMARY KEY not null auto_increment,
     nome varchar(40) not null,
-    sexo varchar(8),
+    sexo varchar(15),
     email varchar(40) not null,
-    celular varchar(11) not null,
-    rg varchar(11)not null,
-    cpf varchar(11) unique not null,
-    data_nasci date not null,
+    celular varchar(15) not null,
+    rg varchar(15)not null,
+    cpf varchar(15) unique not null,
+    data_nasci varchar(10) not null,
     naturalidade varchar(30),
+    uf varchar (2) not null,
     fk_endereco int,
     foreign key(fk_endereco) references endereco(id_endereco)
 );
+alter table cliente modify uf varchar(2) not null;
 CREATE TABLE fornecedor (
     id_fornecedor int PRIMARY KEY not null auto_increment,
     nome varchar(40) not null,
@@ -82,13 +84,20 @@ CREATE TABLE carro (
     placa varchar(9) unique not null,
     modelo varchar(20) not null,
     fabricante varchar(20) not null,
-    ano_fab date not null,
+    ano_fab varchar(4) not null,
     cor varchar(15) not null,
     km int not null,
-    ano_modelo date not null,
+    ano_modelo varchar(4) not null,
     informacoes varchar(50) not null,
     fk_cliente int,
     fk_ordem_de_servico int,
     foreign key(fk_cliente) references cliente(id_cliente),
     foreign key(fk_ordem_de_servico) references ordem_de_servico(id_servico)
 );
+alter table carro modify ano_modelo varchar(4) not null;
+
+select * from cliente;
+
+select * from endereco;
+
+select * from carro;
