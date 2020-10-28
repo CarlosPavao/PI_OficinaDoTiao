@@ -32,12 +32,13 @@ create table funcionario(
             cpf varchar(15) unique not null,
             sexo varchar(10) not null,
             uf varchar(2) not null,
+            funcao varchar(10) not null,
             fk_departamento int,
             fk_endereco int,
             foreign key(fk_departamento) references departamento(id),
             foreign key(fk_endereco) references endereco(id_endereco)
             );
-alter table funcionario add data_nasci varchar(10) not null;
+
 CREATE TABLE caixa (
     id_venda int PRIMARY KEY not null auto_increment,
     data_venda date not null,
