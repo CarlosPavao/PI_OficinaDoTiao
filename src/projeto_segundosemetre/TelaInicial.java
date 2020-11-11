@@ -216,7 +216,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void novoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoClienteActionPerformed
         // TODO add your handling code here:
-        NovoCliente telaCadUser = new NovoCliente();
+        cliente telaCadUser = new cliente();
         jDesktopPane1.add(telaCadUser);
         telaCadUser.setVisible(true);
     }//GEN-LAST:event_novoClienteActionPerformed
