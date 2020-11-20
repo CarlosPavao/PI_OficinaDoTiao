@@ -26,19 +26,18 @@ create table funcionario(
             nome_func varchar(40) not null,
             email varchar(25) not null,
             naturalidade varchar(30) not null,
-            celular varchar(15) not null,
+            telefone varchar(15) not null,
             rg varchar(11) unique not null,
             data_nasci varchar(10) not null,
             cpf varchar(15) unique not null,
             sexo varchar(10) not null,
             uf varchar(2) not null,
-            funcao varchar(10) not null,
             fk_departamento int,
             fk_endereco int,
             foreign key(fk_departamento) references departamento(id),
             foreign key(fk_endereco) references endereco(id_endereco)
             );
-
+alter table funcionario drop column funcao;
 CREATE TABLE caixa (
     id_venda int PRIMARY KEY not null auto_increment,
     data_venda date not null,
@@ -66,15 +65,16 @@ CREATE TABLE cliente (
     nome varchar(40) not null,
     sexo varchar(15),
     email varchar(40) not null,
+    telefone varchar(15),
     celular varchar(15) not null,
-    rg varchar(15)not null,
+    rg varchar(15) not null,
     cpf varchar(15) unique not null,
     data_nasci varchar(10) not null,
-    naturalidade varchar(30),
-    uf varchar (2) not null,
     fk_endereco int,
     foreign key(fk_endereco) references endereco(id_endereco)
 );
+alter table cliente drop column naturalidade;
+select * from cliente;
 CREATE TABLE fornecedor (
     id_fornecedor int PRIMARY KEY not null auto_increment,
     nome varchar(40) not null,
@@ -99,8 +99,10 @@ CREATE TABLE carro (
     foreign key(fk_ordem_de_servico) references ordem_de_servico(id_servico)
 );
 
-select * from cliente;
-
-select * from endereco;
-
-select * from carro;
+delimiter $$
+create procedure novo_cliente (logradouro varchar(30),bairro varchar(30),numero int,cep varchar(10),cidade varchar(30),complemento varchar(30),uf varchar(2),nome varchar(40),sexo varchar(15),email varchar(40),telefone varchar(15),celular varchar(15),rg varchar(15),cpf varchar(15),data_nasci varchar(10),placa varchar(9),modelo varchar(20),fabricante varchar(20),ano_fab varchar(4),cor varchar(15),km int,ano_modelo varchar(4))
+begin
+insert into endereco (logradouro,bairro,numero,cep,cidade,complemento,uf) values (logradouro,bairro,numero,cep,cidade,complemento,uf);
+insert into cliente (nome,sexo,email,telefone,celular,rg,cpf,data_nasci,fk_endereco) values (nome,sexo,email,telefone,celular,rg,cpf,data_nasci,@@identity);
+insert into carro (placa,modelo,fabricante,ano_fab,cor,km,ano_modelo,informacoes,fk_cliente) values (placa,modelo,fabricante,ano_fab,cor,km,ano_modelo,informacoes,@@identity);
+end$$
