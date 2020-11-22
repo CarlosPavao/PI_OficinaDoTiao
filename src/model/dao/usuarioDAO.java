@@ -9,6 +9,7 @@ import connection.connectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -35,7 +36,7 @@ public boolean validausuario(String login, String senha){
                 valida = true;
             }
             
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!\n"+ex);
         }finally{
             connectionFactory.closeConnection(con,stmt);

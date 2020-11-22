@@ -5,6 +5,8 @@
  */
 package projeto_segundosemetre;
 
+import model.dao.clienteDAO;
+
 /**
  *
  * @author carlo
@@ -32,7 +34,7 @@ public class cliente extends javax.swing.JInternalFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel88 = new javax.swing.JLabel();
         cpf21 = new javax.swing.JScrollPane();
-        txtNome4 = new javax.swing.JTextPane();
+        txtNome = new javax.swing.JTextPane();
         jInternalFrame3 = new javax.swing.JInternalFrame();
         jLabel89 = new javax.swing.JLabel();
         cpf22 = new javax.swing.JScrollPane();
@@ -96,18 +98,18 @@ public class cliente extends javax.swing.JInternalFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel51 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txtCpf = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtCelular = new javax.swing.JFormattedTextField();
+        txtTelefone = new javax.swing.JFormattedTextField();
         jLabel52 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        txtSexo2 = new javax.swing.JComboBox<>();
+        txtData = new javax.swing.JFormattedTextField();
+        txtSexo = new javax.swing.JComboBox<>();
         jLabel54 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtCelular2 = new javax.swing.JFormattedTextField();
+        txtCelular = new javax.swing.JFormattedTextField();
         jLabel55 = new javax.swing.JLabel();
         jScrollPane17 = new javax.swing.JScrollPane();
-        txtCep2 = new javax.swing.JTextPane();
+        txtRg = new javax.swing.JTextPane();
         cpf1 = new javax.swing.JScrollPane();
         txtEmail = new javax.swing.JTextPane();
         jLabel14 = new javax.swing.JLabel();
@@ -131,31 +133,31 @@ public class cliente extends javax.swing.JInternalFrame {
         jLabel21 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         txtCidade = new javax.swing.JTextPane();
-        txtUf2 = new javax.swing.JComboBox<>();
+        txtUf = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane18 = new javax.swing.JScrollPane();
-        txtCep3 = new javax.swing.JTextPane();
+        txtPlaca = new javax.swing.JTextPane();
         jScrollPane19 = new javax.swing.JScrollPane();
-        txtCep4 = new javax.swing.JTextPane();
+        txtFabricante = new javax.swing.JTextPane();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane30 = new javax.swing.JScrollPane();
-        txtCep7 = new javax.swing.JTextPane();
+        txtModelo = new javax.swing.JTextPane();
         jScrollPane31 = new javax.swing.JScrollPane();
-        txtCep8 = new javax.swing.JTextPane();
+        txtCor = new javax.swing.JTextPane();
         jScrollPane32 = new javax.swing.JScrollPane();
-        txtCep9 = new javax.swing.JTextPane();
+        txtAnoModelo = new javax.swing.JTextPane();
         jScrollPane33 = new javax.swing.JScrollPane();
-        txtCep10 = new javax.swing.JTextPane();
+        txtKm = new javax.swing.JTextPane();
         jScrollPane34 = new javax.swing.JScrollPane();
-        txtCep11 = new javax.swing.JTextPane();
+        txtAnoFab = new javax.swing.JTextPane();
         botaoCadastrar = new javax.swing.JButton();
 
         jPanel11.setBackground(new java.awt.Color(204, 204, 0));
@@ -171,8 +173,8 @@ public class cliente extends javax.swing.JInternalFrame {
         jLabel88.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
         jLabel88.setText("Nome:");
 
-        txtNome4.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        cpf21.setViewportView(txtNome4);
+        txtNome.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        cpf21.setViewportView(txtNome);
 
         jInternalFrame3.setClosable(true);
         jInternalFrame3.setIconifiable(true);
@@ -544,14 +546,50 @@ public class cliente extends javax.swing.JInternalFrame {
         jLabel51.setText("CPF:");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        txtCpf.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
         jLabel8.setText("Telefone:");
+
+        try {
+            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtTelefone.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefoneActionPerformed(evt);
+            }
+        });
+
+        jLabel52.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
+        jLabel52.setText("Data de nascimento:");
+
+        try {
+            txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtData.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+
+        txtSexo.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        txtSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Feminino" }));
+        txtSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSexoActionPerformed(evt);
+            }
+        });
+
+        jLabel54.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
+        jLabel54.setText("Sexo:");
+
+        jLabel10.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
+        jLabel10.setText("Celular:");
 
         try {
             txtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
@@ -565,47 +603,11 @@ public class cliente extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel52.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
-        jLabel52.setText("Data de nascimento:");
-
-        try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFormattedTextField2.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-
-        txtSexo2.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        txtSexo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Feminino" }));
-        txtSexo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSexo2ActionPerformed(evt);
-            }
-        });
-
-        jLabel54.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
-        jLabel54.setText("Sexo:");
-
-        jLabel10.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
-        jLabel10.setText("Celular:");
-
-        try {
-            txtCelular2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtCelular2.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        txtCelular2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCelular2ActionPerformed(evt);
-            }
-        });
-
         jLabel55.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
         jLabel55.setText("RG:");
 
-        txtCep2.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jScrollPane17.setViewportView(txtCep2);
+        txtRg.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jScrollPane17.setViewportView(txtRg);
 
         txtEmail.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         cpf1.setViewportView(txtEmail);
@@ -627,19 +629,19 @@ public class cliente extends javax.swing.JInternalFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel51)
                         .addGap(18, 18, 18)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSexo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel55)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -647,7 +649,7 @@ public class cliente extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCelular2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -670,24 +672,24 @@ public class cliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)
-                        .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jFormattedTextField1)))
+                        .addComponent(txtCpf)))
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtSexo2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel54))
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
-                                    .addComponent(txtCelular2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -748,11 +750,11 @@ public class cliente extends javax.swing.JInternalFrame {
         txtCidade.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jScrollPane10.setViewportView(txtCidade);
 
-        txtUf2.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        txtUf2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SP", "SE", "TO" }));
-        txtUf2.addActionListener(new java.awt.event.ActionListener() {
+        txtUf.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        txtUf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SP", "SE", "TO" }));
+        txtUf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUf2ActionPerformed(evt);
+                txtUfActionPerformed(evt);
             }
         });
 
@@ -795,7 +797,7 @@ public class cliente extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtUf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -829,7 +831,7 @@ public class cliente extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel22)
-                        .addComponent(txtUf2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -847,11 +849,11 @@ public class cliente extends javax.swing.JInternalFrame {
         jLabel17.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
         jLabel17.setText("Fabricante:");
 
-        txtCep3.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jScrollPane18.setViewportView(txtCep3);
+        txtPlaca.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jScrollPane18.setViewportView(txtPlaca);
 
-        txtCep4.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jScrollPane19.setViewportView(txtCep4);
+        txtFabricante.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jScrollPane19.setViewportView(txtFabricante);
 
         jLabel57.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
         jLabel57.setText("KM");
@@ -868,20 +870,20 @@ public class cliente extends javax.swing.JInternalFrame {
         jLabel18.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
         jLabel18.setText("Modelo:");
 
-        txtCep7.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jScrollPane30.setViewportView(txtCep7);
+        txtModelo.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jScrollPane30.setViewportView(txtModelo);
 
-        txtCep8.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jScrollPane31.setViewportView(txtCep8);
+        txtCor.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jScrollPane31.setViewportView(txtCor);
 
-        txtCep9.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jScrollPane32.setViewportView(txtCep9);
+        txtAnoModelo.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jScrollPane32.setViewportView(txtAnoModelo);
 
-        txtCep10.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jScrollPane33.setViewportView(txtCep10);
+        txtKm.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jScrollPane33.setViewportView(txtKm);
 
-        txtCep11.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jScrollPane34.setViewportView(txtCep11);
+        txtAnoFab.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jScrollPane34.setViewportView(txtAnoFab);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1046,24 +1048,73 @@ public class cliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9jButton3ActionPerformed
 
+    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefoneActionPerformed
+
+    private void txtSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSexoActionPerformed
+
     private void txtCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelularActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCelularActionPerformed
 
-    private void txtSexo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexo2ActionPerformed
+    private void txtUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSexo2ActionPerformed
-
-    private void txtCelular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelular2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCelular2ActionPerformed
-
-    private void txtUf2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUf2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUf2ActionPerformed
+    }//GEN-LAST:event_txtUfActionPerformed
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         // TODO add your handling code here:
+        model.bean.cliente insere = new model.bean.cliente();
+        clienteDAO dao = new clienteDAO();
+        
+        insere.setLogradouro(txtLogra.getText());
+        insere.setBairro(txtBairro.getText());
+        insere.setNumero(Integer.parseInt(txtNumero.getText()));
+        insere.setCep(txtCep.getText());
+        insere.setCidade(txtCidade.getText());
+        insere.setComplemento(txtComple.getText());
+        insere.setUf(txtUf.getSelectedItem().toString());
+        insere.setNome(txtNome.getText());
+        insere.setSexo(txtSexo.getSelectedItem().toString());
+        insere.setEmail(txtEmail.getText());
+        insere.setTelefone(txtTelefone.getText());
+        insere.setCelular(txtCelular.getText());
+        insere.setRg(txtRg.getText());
+        insere.setCpf(txtCpf.getText());
+        insere.setData_nasci(txtData.getText());
+        insere.setPlaca(txtPlaca.getText());
+        insere.setModelo(txtModelo.getText());
+        insere.setFabricante(txtFabricante.getText());
+        insere.setAno_fab(txtAnoFab.getText());
+        insere.setAno_modelo(txtAnoModelo.getText());
+        insere.setCor(txtCor.getText());
+        insere.setKm(Integer.parseInt(txtKm.getText()));
+        
+        txtLogra.setText("");
+        txtBairro.setText("");
+        txtNumero.setText("");
+        txtCep.setText("");
+        txtCidade.setText("");
+        txtComple.setText("");
+        //txtUf.getSelectedItem("Selecione");
+        txtNome.setText("");
+        //txtSexo.setText("");
+        txtEmail.setText("");
+        txtTelefone.setText("");
+        txtCelular.setText("");
+        txtRg.setText("");
+        txtCpf.setText("");
+        txtData.setText("");
+        txtPlaca.setText("");
+        txtModelo.setText("");
+        txtFabricante.setText("");
+        txtAnoFab.setText("");
+        txtAnoModelo.setText("");
+        txtCor.setText("");
+        txtKm.setText("");
+        
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
 
@@ -1084,8 +1135,6 @@ public class cliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JInternalFrame jInternalFrame3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -1161,41 +1210,43 @@ public class cliente extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextPane jTextPane6;
     private javax.swing.JPasswordField senha3;
+    private javax.swing.JTextPane txtAnoFab;
+    private javax.swing.JTextPane txtAnoModelo;
     private javax.swing.JTextPane txtBairro;
     private javax.swing.JTextPane txtBairro3;
     private javax.swing.JFormattedTextField txtCelular;
-    private javax.swing.JFormattedTextField txtCelular2;
     private javax.swing.JTextPane txtCelular4;
     private javax.swing.JTextPane txtCep;
-    private javax.swing.JTextPane txtCep10;
-    private javax.swing.JTextPane txtCep11;
-    private javax.swing.JTextPane txtCep2;
-    private javax.swing.JTextPane txtCep3;
-    private javax.swing.JTextPane txtCep4;
     private javax.swing.JTextPane txtCep6;
-    private javax.swing.JTextPane txtCep7;
-    private javax.swing.JTextPane txtCep8;
-    private javax.swing.JTextPane txtCep9;
     private javax.swing.JTextPane txtCidade;
     private javax.swing.JTextPane txtCidade3;
     private javax.swing.JTextPane txtComple;
     private javax.swing.JTextPane txtComple3;
+    private javax.swing.JTextPane txtCor;
+    private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JTextPane txtCpf3;
+    private javax.swing.JFormattedTextField txtData;
     private javax.swing.JTextPane txtDataNasci3;
     private javax.swing.JTextPane txtEmail;
     private javax.swing.JTextPane txtEmail3;
+    private javax.swing.JTextPane txtFabricante;
     private javax.swing.JComboBox<String> txtFuncao2;
+    private javax.swing.JTextPane txtKm;
     private javax.swing.JTextPane txtLogra;
     private javax.swing.JTextPane txtLogra3;
+    private javax.swing.JTextPane txtModelo;
     private javax.swing.JTextPane txtNaturalidade3;
-    private javax.swing.JTextPane txtNome4;
+    private javax.swing.JTextPane txtNome;
     private javax.swing.JTextPane txtNome5;
     private javax.swing.JTextPane txtNumero;
     private javax.swing.JTextPane txtNumero3;
+    private javax.swing.JTextPane txtPlaca;
+    private javax.swing.JTextPane txtRg;
     private javax.swing.JTextPane txtRg3;
-    private javax.swing.JComboBox<String> txtSexo2;
+    private javax.swing.JComboBox<String> txtSexo;
     private javax.swing.JComboBox<String> txtSexo6;
-    private javax.swing.JComboBox<String> txtUf2;
+    private javax.swing.JFormattedTextField txtTelefone;
+    private javax.swing.JComboBox<String> txtUf;
     private javax.swing.JComboBox<String> txtUf6;
     private javax.swing.JComboBox<String> txtUf7;
     // End of variables declaration//GEN-END:variables
