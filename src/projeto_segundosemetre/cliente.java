@@ -159,6 +159,7 @@ public class cliente extends javax.swing.JInternalFrame {
         jScrollPane34 = new javax.swing.JScrollPane();
         txtAnoFab = new javax.swing.JTextPane();
         botaoCadastrar = new javax.swing.JButton();
+        botaoVoltar = new javax.swing.JButton();
 
         jPanel11.setBackground(new java.awt.Color(204, 204, 0));
 
@@ -963,6 +964,15 @@ public class cliente extends javax.swing.JInternalFrame {
             }
         });
 
+        botaoVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        botaoVoltar.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
+        botaoVoltar.setText("Voltar");
+        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -974,9 +984,11 @@ public class cliente extends javax.swing.JInternalFrame {
             .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
+                .addComponent(botaoVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botaoCadastrar)
-                .addGap(80, 80, 80))
+                .addGap(21, 21, 21))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -993,7 +1005,9 @@ public class cliente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(botaoCadastrar)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoCadastrar)
+                    .addComponent(botaoVoltar))
                 .addContainerGap())
         );
 
@@ -1092,7 +1106,7 @@ public class cliente extends javax.swing.JInternalFrame {
         insere.setCor(txtCor.getText());
         insere.setKm(Integer.parseInt(txtKm.getText()));
         dao.incluiClient(insere);
-        /*
+        
         txtLogra.setText("");
         txtBairro.setText("");
         txtNumero.setText("");
@@ -1115,13 +1129,19 @@ public class cliente extends javax.swing.JInternalFrame {
         txtAnoModelo.setText("");
         txtCor.setText("");
         txtKm.setText("");
-        */
     }//GEN-LAST:event_botaoCadastrarActionPerformed
+
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+        // TODO add your handling code here:
+        new TelaInicial().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botaoVoltarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoVoltar3;
     private javax.swing.JButton botaoCadastrar;
+    private javax.swing.JButton botaoVoltar;
     private javax.swing.JScrollPane cpf1;
     private javax.swing.JScrollPane cpf21;
     private javax.swing.JScrollPane cpf22;

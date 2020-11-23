@@ -17,23 +17,32 @@ import model.bean.funcionario;
  * @author Alex
  */
 public class funcionarioDAO {
-    public void incluiFuncionario(funcionario inseri){
+    public void incluiFuncionario(funcionario insere){
         
         Connection con = connectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO funcionario(nome_func,email,naturalidade,celular,rg,cpf,sexo,uf,data_nasci,funcao) VALUES(?,?,?,?,?,?,?,?,?,?)");
-            stmt.setString(1,inseri.getNome_funcionario());
-            stmt.setString(2,inseri.getEmail());
-            stmt.setString(3,inseri.getNaturalidade());
-            stmt.setString(4,inseri.getCelular());
-            stmt.setString(5,inseri.getRg());
-            stmt.setString(6,inseri.getCpf());
-            stmt.setString(7,inseri.getSexo());
-            stmt.setString(8,inseri.getUf());
-            stmt.setString(9,inseri.getData_nasci());
-            stmt.setString(9,inseri.getFuncao());
+            stmt = con.prepareStatement("call novo_funcionario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            stmt.setString(1,insere.getLogradouro());
+            stmt.setString(2,insere.getBairro());
+            stmt.setInt(3,insere.getNumero());
+            stmt.setString(4,insere.getCep());
+            stmt.setString(5,insere.getCidade());
+            stmt.setString(6,insere.getComplemento());
+            stmt.setString(7,insere.getUf());
+            stmt.setString(8,insere.getCargo());
+            stmt.setString(9,insere.getNome_func());
+            stmt.setString(10,insere.getSexo());
+            stmt.setString(11,insere.getEmail());
+            stmt.setString(12,insere.getTelefone());
+            stmt.setString(13,insere.getNaturalidade());
+            stmt.setString(14,insere.getUf_func());
+            stmt.setString(15,insere.getRg());
+            stmt.setString(16,insere.getCpf());
+            stmt.setString(17,insere.getData_nasci());
+            stmt.setString(18,insere.getLogin());
+            stmt.setString(19,insere.getSenha());
             
             stmt.executeUpdate();
 

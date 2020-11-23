@@ -31,7 +31,7 @@ create table funcionario(
             data_nasci varchar(10) not null,
             cpf varchar(15) unique not null,
             sexo varchar(10) not null,
-            uf varchar(2) not null,
+            uf_func varchar(2),
             fk_departamento int,
             fk_endereco int,
             foreign key(fk_departamento) references departamento(id),
@@ -104,10 +104,10 @@ insert into cliente (nome,sexo,email,telefone,celular,rg,cpf,data_nasci,fk_ender
 insert into carro (placa,modelo,fabricante,ano_fab,cor,km,ano_modelo,informacoes,fk_cliente) values (placa,modelo,fabricante,ano_fab,cor,km,ano_modelo,informacoes,@@identity);
 end$$
 delimiter $$
-create procedure novo_funcionario (logradouro varchar(30),bairro varchar(30),numero int,cep varchar(10),cidade varchar(30),complemento varchar(30),uf varchar(2),cargo varchar(15),nome_func varchar(40),sexo varchar(15),email varchar(40),telefone varchar(15),naturalidade varchar(30),rg varchar(15),cpf varchar(15),data_nasci varchar(10),login varchar(9),senha varchar(20))
+create procedure novo_funcionario (logradouro varchar(30),bairro varchar(30),numero int,cep varchar(10),cidade varchar(30),complemento varchar(30),uf varchar(2),cargo varchar(15),nome_func varchar(40),sexo varchar(15),email varchar(40),telefone varchar(15),naturalidade varchar(30),uf_func varchar(2),rg varchar(15),cpf varchar(15),data_nasci varchar(10),login varchar(9),senha varchar(20))
 begin
 insert into endereco (logradouro,bairro,numero,cep,cidade,complemento,uf) values (logradouro,bairro,numero,cep,cidade,complemento,uf);
 insert into departamento(cargo) value (cargo);
-insert into funcionario (nome_func,sexo,email,telefone,naturalidade,rg,cpf,data_nasci,fk_endereco,fk_departamento) values (nome_func,sexo,email,telefone,naturalidade,rg,cpf,data_nasci,@@identity,@@identity);
+insert into funcionario (nome_func,sexo,email,telefone,naturalidade,uf_func,rg,cpf,data_nasci,fk_endereco,fk_departamento) values (nome_func,sexo,email,telefone,naturalidade,uf_func,rg,cpf,data_nasci,@@identity,@@identity);
 insert into acesso (login,senha) values (login,senha);
 end$$
