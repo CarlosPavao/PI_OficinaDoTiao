@@ -1091,7 +1091,8 @@ public class cliente extends javax.swing.JInternalFrame {
         insere.setAno_modelo(txtAnoModelo.getText());
         insere.setCor(txtCor.getText());
         insere.setKm(Integer.parseInt(txtKm.getText()));
-        
+        dao.incluiClient(insere);
+        /*
         txtLogra.setText("");
         txtBairro.setText("");
         txtNumero.setText("");
@@ -1114,7 +1115,7 @@ public class cliente extends javax.swing.JInternalFrame {
         txtAnoModelo.setText("");
         txtCor.setText("");
         txtKm.setText("");
-        
+        */
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
 

@@ -37,7 +37,6 @@ create table funcionario(
             foreign key(fk_departamento) references departamento(id),
             foreign key(fk_endereco) references endereco(id_endereco)
             );
-alter table funcionario drop column funcao;
 CREATE TABLE caixa (
     id_venda int PRIMARY KEY not null auto_increment,
     data_venda date not null,
@@ -73,8 +72,6 @@ CREATE TABLE cliente (
     fk_endereco int,
     foreign key(fk_endereco) references endereco(id_endereco)
 );
-alter table cliente drop column naturalidade;
-select * from cliente;
 CREATE TABLE fornecedor (
     id_fornecedor int PRIMARY KEY not null auto_increment,
     nome varchar(40) not null,

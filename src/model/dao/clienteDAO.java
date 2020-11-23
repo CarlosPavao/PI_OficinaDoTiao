@@ -23,8 +23,7 @@ public class clienteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("call novo_cliente (logradouro,bairro,numero,cep,cidade,complemento,uf,nome,sexo,email,telefone,celular,rg,cpf,data_nasci,placa,modelo,fabricante,ano_fab,cor,km,ano_modelo)"
-                    + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("call novo_cliente(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1,insere.getLogradouro());
             stmt.setString(2,insere.getBairro());
             stmt.setInt(3,insere.getNumero());
@@ -34,14 +33,14 @@ public class clienteDAO {
             stmt.setString(7,insere.getUf());
             stmt.setString(8,insere.getNome());
             stmt.setString(9,insere.getSexo());
-            stmt.setString(10,insere.getSexo());
-            stmt.setString(11,insere.getEmail());
-            stmt.setString(12,insere.getTelefone());
-            stmt.setString(13,insere.getCelular());
-            stmt.setString(14,insere.getRg());
-            stmt.setString(15,insere.getCpf());
-            stmt.setString(16,insere.getData_nasci());
-            stmt.setString(17,insere.getPlaca());
+            stmt.setString(10,insere.getEmail());
+            stmt.setString(11,insere.getTelefone());
+            stmt.setString(12,insere.getCelular());
+            stmt.setString(13,insere.getRg());
+            stmt.setString(14,insere.getCpf());
+            stmt.setString(15,insere.getData_nasci());
+            stmt.setString(16,insere.getPlaca());
+            stmt.setString(17,insere.getModelo());
             stmt.setString(18,insere.getFabricante());
             stmt.setString(19,insere.getAno_fab());
             stmt.setString(20,insere.getCor());
@@ -50,7 +49,7 @@ public class clienteDAO {
             
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Cadastrado realizado com sucesso!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao inclui os dados!\n"+ex);
         }finally{

@@ -45,9 +45,7 @@ public class TelaInicial extends javax.swing.JFrame {
         OrdemServiço = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
-        novoCliente1 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
 
@@ -158,24 +156,9 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Fornecedor");
-
-        jMenu8.setText("Produtos");
-        jMenu3.add(jMenu8);
-
         jMenuBar1.add(jMenu3);
 
         jMenu5.setText("Clientes");
-
-        novoCliente1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        novoCliente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/marketing.png"))); // NOI18N
-        novoCliente1.setText("Consulta");
-        novoCliente1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoCliente1ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(novoCliente1);
-
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Funcionários");
@@ -247,10 +230,6 @@ public class TelaInicial extends javax.swing.JFrame {
         telaCadUser.setVisible(true);
     }//GEN-LAST:event_OrdemServiçoActionPerformed
 
-    private void novoCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoCliente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_novoCliente1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -299,7 +278,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -308,7 +286,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JMenuItem novoCliente;
-    private javax.swing.JMenuItem novoCliente1;
     private javax.swing.JMenuItem novoFuncionario;
     // End of variables declaration//GEN-END:variables
 }
