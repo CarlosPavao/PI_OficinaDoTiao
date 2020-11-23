@@ -25,7 +25,7 @@ create table funcionario(
 			id_funcionario int primary key not null auto_increment,
             nome_func varchar(40) not null,
             email varchar(25) not null,
-            naturalidade varchar(30) not null,
+            naturalidade varchar(30),
             telefone varchar(15) not null,
             rg varchar(11) unique not null,
             data_nasci varchar(10) not null,
@@ -95,11 +95,19 @@ CREATE TABLE carro (
     foreign key(fk_cliente) references cliente(id_cliente),
     foreign key(fk_ordem_de_servico) references ordem_de_servico(id_servico)
 );
-
+/* Cadastro de procedure*/
 delimiter $$
 create procedure novo_cliente (logradouro varchar(30),bairro varchar(30),numero int,cep varchar(10),cidade varchar(30),complemento varchar(30),uf varchar(2),nome varchar(40),sexo varchar(15),email varchar(40),telefone varchar(15),celular varchar(15),rg varchar(15),cpf varchar(15),data_nasci varchar(10),placa varchar(9),modelo varchar(20),fabricante varchar(20),ano_fab varchar(4),cor varchar(15),km int,ano_modelo varchar(4))
 begin
 insert into endereco (logradouro,bairro,numero,cep,cidade,complemento,uf) values (logradouro,bairro,numero,cep,cidade,complemento,uf);
 insert into cliente (nome,sexo,email,telefone,celular,rg,cpf,data_nasci,fk_endereco) values (nome,sexo,email,telefone,celular,rg,cpf,data_nasci,@@identity);
 insert into carro (placa,modelo,fabricante,ano_fab,cor,km,ano_modelo,informacoes,fk_cliente) values (placa,modelo,fabricante,ano_fab,cor,km,ano_modelo,informacoes,@@identity);
+end$$
+delimiter $$
+create procedure novo_funcionario (logradouro varchar(30),bairro varchar(30),numero int,cep varchar(10),cidade varchar(30),complemento varchar(30),uf varchar(2),cargo varchar(15),nome_func varchar(40),sexo varchar(15),email varchar(40),telefone varchar(15),naturalidade varchar(30),rg varchar(15),cpf varchar(15),data_nasci varchar(10),login varchar(9),senha varchar(20))
+begin
+insert into endereco (logradouro,bairro,numero,cep,cidade,complemento,uf) values (logradouro,bairro,numero,cep,cidade,complemento,uf);
+insert into departamento(cargo) value (cargo);
+insert into funcionario (nome_func,sexo,email,telefone,naturalidade,rg,cpf,data_nasci,fk_endereco,fk_departamento) values (nome_func,sexo,email,telefone,naturalidade,rg,cpf,data_nasci,@@identity,@@identity);
+insert into acesso (login,senha) values (login,senha);
 end$$
