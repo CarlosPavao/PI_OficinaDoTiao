@@ -5,9 +5,7 @@
  */
 package projeto_segundosemetre;
 
-import model.bean.endereco;
-import model.bean.funcionario;
-import model.dao.enderecoDAO;
+import javax.swing.JOptionPane;
 import model.dao.funcionarioDAO;
 
 /**
@@ -64,7 +62,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         txtRg = new javax.swing.JFormattedTextField();
         txtEmail = new javax.swing.JTextField();
         txtNatural = new javax.swing.JTextField();
-        txtTelefone = new javax.swing.JTextField();
+        txtCelular = new javax.swing.JFormattedTextField();
         jLabel10 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -79,10 +77,10 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         jLabel19 = new javax.swing.JLabel();
         txtCep = new javax.swing.JFormattedTextField();
         txtLogra = new javax.swing.JTextField();
-        txtNumero = new javax.swing.JTextField();
         txtBairro = new javax.swing.JTextField();
         txtCidade = new javax.swing.JTextField();
         txtComple = new javax.swing.JTextField();
+        txtNumero = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         BotaoVoltar = new javax.swing.JButton();
 
@@ -147,7 +145,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Nome completo:");
 
-        jLabel4.setText("Cpf:");
+        jLabel4.setText("CPF:");
 
         jLabel5.setText("Data de nascimento:");
 
@@ -175,7 +173,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel8.setText("Telefone:");
+        jLabel8.setText("Celular:");
 
         try {
             txtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -191,6 +189,12 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
 
         try {
             txtRg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            txtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -243,8 +247,8 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefone)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,22 +273,24 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                             .addComponent(jLabel18)
                             .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(12, 12, 12)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel15)))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel15))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel14)
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(txtNatural, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel17)
-                        .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(txtNatural, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -368,7 +374,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -437,15 +443,17 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel10))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BotaoVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
-                .addContainerGap())
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(BotaoVoltar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel10))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,38 +469,146 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoVoltar)
                     .addComponent(jButton3))
-                .addGap(34, 34, 34))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFuncaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFuncaoActionPerformed
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
         // TODO add your handling code here:
         new TelaInicial().setVisible(true);
         dispose();
     }//GEN-LAST:event_BotaoVoltarActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // Botao endereco
+        model.bean.funcionario insere = new model.bean.funcionario();
+        funcionarioDAO dao = new funcionarioDAO();
+        
+        if (txtUsuario.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo usuário");
+        }
+        else if (txtSenha.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo senha.");
+        }
+        else if (txtNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo nome.");
+        }
+        else if (txtCpf.getText().equals("   .   .   -  ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo CPF.");
+        }
+        else if (txtData.getText().equals("  /  /    ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Data de nascimento.");
+        }
+        else if (txtRg.getText().equals("  .   .   - ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Rg.");
+        }
+        else if (txtEmail.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo E-mail.");
+        }
+        else if (txtSexo.getSelectedItem().toString().equals("Selecione")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Sexo.");
+        }
+        else if (txtNatural.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Naturalidade.");
+        }
+        else if (txtUf.getSelectedItem().toString().equals("Selecione")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo UF dos dados pessoais.");
+        }
+        else if (txtCelular.getText().equals("(  )     -    ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo telefone.");
+        }
+        else if (txtCep.getText().equals("     -   ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo CEP.");
+        }
+        else if (txtLogra.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Logradouro.");
+        }
+        else if (txtNumero.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Número.");
+        }
+        else if (txtBairro.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Bairro.");
+        }
+        else if (txtCidade.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Cidade.");
+        }
+        else if (txtUf2.getSelectedItem().toString().equals("Selecione")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo UF do endereço.");
+        }
+        else if (txtComple.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo complemento.");
+        }
+        else if (txtFuncao.getSelectedItem().toString().equals("Selecione")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Função.");
+        }
+        else{
+            insere.setLogradouro(txtLogra.getText());
+            insere.setBairro(txtBairro.getText());
+            insere.setNumero(Integer.parseInt(txtNumero.getText()));
+            insere.setCep(txtCep.getText());
+            insere.setCidade(txtCidade.getText());
+            insere.setComplemento(txtComple.getText());
+            insere.setUf(txtUf2.getSelectedItem().toString());
+            insere.setCargo(txtFuncao.getSelectedItem().toString());
+            insere.setNome_func(txtNome.getText());
+            insere.setSexo(txtSexo.getSelectedItem().toString());
+            insere.setEmail(txtEmail.getText());
+            insere.setCelular(txtCelular.getText());
+            insere.setNaturalidade(txtNatural.getText());
+            insere.setUf_func(txtUf.getSelectedItem().toString());
+            insere.setRg(txtRg.getText());
+            insere.setCpf(txtCpf.getText());
+            insere.setData_nasci(txtData.getText());
+            insere.setLogin(txtUsuario.getText());
+            insere.setSenha(new String(txtSenha.getPassword()));
+            dao.incluiFuncionario(insere);
+
+            txtLogra.setText("");
+            txtBairro.setText("");
+            txtNumero.setText("");
+            txtCep.setText("");
+            txtCidade.setText("");
+            txtComple.setText("");
+            txtUf.setSelectedIndex(0);
+            txtFuncao.setSelectedIndex(0);
+            txtUf2.setSelectedIndex(0);
+            txtNome.setText("");
+            txtSexo.setSelectedIndex(0);
+            txtEmail.setText("");
+            txtCelular.setText("");
+            txtNatural.setText("");
+            txtRg.setText("");
+            txtCpf.setText("");
+            txtData.setText("");
+            txtUsuario.setText("");
+            txtSenha.setText("");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtUf2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUf2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUf2ActionPerformed
+
+    private void txtFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFuncaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFuncaoActionPerformed
 
     private void txtUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUfActionPerformed
         // TODO add your handling code here:
@@ -501,57 +617,6 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
     private void txtSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSexoActionPerformed
-
-    private void txtUf2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUf2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUf2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // Botao endereco
-        model.bean.funcionario insere = new model.bean.funcionario();
-        funcionarioDAO dao = new funcionarioDAO();
-        insere.setLogradouro(txtLogra.getText());
-        insere.setBairro(txtBairro.getText());
-        insere.setNumero(Integer.parseInt(txtNumero.getText()));
-        insere.setCep(txtCep.getText());
-        insere.setCidade(txtCidade.getText());
-        insere.setComplemento(txtComple.getText());
-        insere.setUf(txtUf2.getSelectedItem().toString());
-        insere.setCargo(txtFuncao.getSelectedItem().toString());
-        insere.setNome_func(txtNome.getText());
-        insere.setSexo(txtSexo.getSelectedItem().toString());
-        insere.setEmail(txtEmail.getText());
-        insere.setTelefone(txtTelefone.getText());
-        insere.setNaturalidade(txtNatural.getText());
-        insere.setUf_func(txtUf.getSelectedItem().toString());
-        insere.setRg(txtRg.getText());
-        insere.setCpf(txtCpf.getText());
-        insere.setData_nasci(txtData.getText());
-        insere.setLogin(txtUsuario.getText());
-        insere.setSenha(new String(txtSenha.getPassword()));
-        dao.incluiFuncionario(insere);
-     
-        txtLogra.setText("");
-        txtBairro.setText("");
-        txtNumero.setText("");
-        txtCep.setText("");
-        txtCidade.setText("");
-        txtComple.setText("");
-        txtUf.setSelectedIndex(0);
-        txtFuncao.setSelectedIndex(0);
-        txtUf2.setSelectedIndex(0);
-        txtNome.setText("");
-        txtSexo.setSelectedIndex(0);
-        txtEmail.setText("");
-        txtTelefone.setText("");
-        txtNatural.setText("");
-        txtTelefone.setText("");
-        txtRg.setText("");
-        txtCpf.setText("");
-        txtData.setText("");
-        txtUsuario.setText("");
-        txtSenha.setText("");
-    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -590,6 +655,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextPane jTextPane6;
     private javax.swing.JTextPane jTextPane7;
     private javax.swing.JTextField txtBairro;
+    private javax.swing.JFormattedTextField txtCelular;
     private javax.swing.JFormattedTextField txtCep;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtComple;
@@ -604,9 +670,12 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtRg;
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JComboBox<String> txtSexo;
-    private javax.swing.JTextField txtTelefone;
     private javax.swing.JComboBox<String> txtUf;
     private javax.swing.JComboBox<String> txtUf2;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private boolean isDigit() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -35,7 +35,7 @@ public class funcionarioDAO {
             stmt.setString(9,insere.getNome_func());
             stmt.setString(10,insere.getSexo());
             stmt.setString(11,insere.getEmail());
-            stmt.setString(12,insere.getTelefone());
+            stmt.setString(12,insere.getCelular());
             stmt.setString(13,insere.getNaturalidade());
             stmt.setString(14,insere.getUf_func());
             stmt.setString(15,insere.getRg());

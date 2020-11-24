@@ -22,7 +22,7 @@ public class funcionario {
     private String nome_func;
     private String sexo;
     private String email;
-    private String telefone;
+    private String celular;
     private String naturalidade;
     private String uf_func;
     private String rg;
@@ -127,12 +127,12 @@ public class funcionario {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
     public String getNaturalidade() {

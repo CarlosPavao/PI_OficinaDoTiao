@@ -26,7 +26,7 @@ create table funcionario(
             nome_func varchar(40) not null,
             email varchar(25) not null,
             naturalidade varchar(30),
-            telefone varchar(15) not null,
+            celular varchar(14) not null,
             rg varchar(11) unique not null,
             data_nasci varchar(10) not null,
             cpf varchar(15) unique not null,
@@ -37,6 +37,8 @@ create table funcionario(
             foreign key(fk_departamento) references departamento(id),
             foreign key(fk_endereco) references endereco(id_endereco)
             );
+alter table funcionario change telefone celular varchar(14) not null;
+select * from funcionario;
 CREATE TABLE caixa (
     id_venda int PRIMARY KEY not null auto_increment,
     data_venda date not null,
@@ -111,3 +113,4 @@ insert into departamento(cargo) value (cargo);
 insert into funcionario (nome_func,sexo,email,telefone,naturalidade,uf_func,rg,cpf,data_nasci,fk_endereco,fk_departamento) values (nome_func,sexo,email,telefone,naturalidade,uf_func,rg,cpf,data_nasci,@@identity,@@identity);
 insert into acesso (login,senha) values (login,senha);
 end$$
+select * from endereco;
