@@ -5,6 +5,7 @@
  */
 package projeto_segundosemetre;
 
+import javax.swing.JOptionPane;
 import model.dao.clienteDAO;
 
 /**
@@ -142,9 +143,9 @@ public class cliente extends javax.swing.JInternalFrame {
         txtFab = new javax.swing.JTextField();
         txtCor = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
-        txtAnoMold = new javax.swing.JTextField();
         txtKm = new javax.swing.JTextField();
-        txtAnoFab = new javax.swing.JTextField();
+        txtAnoModelo = new javax.swing.JFormattedTextField();
+        txtAnoFab = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setResizable(true);
@@ -863,6 +864,18 @@ public class cliente extends javax.swing.JInternalFrame {
         jLabel18.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
         jLabel18.setText("Modelo:");
 
+        try {
+            txtAnoModelo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            txtAnoFab.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -873,7 +886,7 @@ public class cliente extends javax.swing.JInternalFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel59)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAnoFab, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtAnoFab, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -893,7 +906,7 @@ public class cliente extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel58)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAnoMold, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtAnoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel57)))
                         .addGap(18, 18, 18)
@@ -922,8 +935,8 @@ public class cliente extends javax.swing.JInternalFrame {
                         .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtAnoMold, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel58)
+                        .addComponent(txtAnoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                         .addComponent(txtKm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1043,53 +1056,124 @@ public class cliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         model.bean.cliente insere = new model.bean.cliente();
         clienteDAO dao = new clienteDAO();
-        
-        insere.setLogradouro(txtLogra.getText());
-        insere.setBairro(txtBairro.getText());
-        insere.setNumero(Integer.parseInt(txtNumero.getText()));
-        insere.setCep(txtCep.getText());
-        insere.setCidade(txtCidade.getText());
-        insere.setComplemento(txtComple.getText());
-        insere.setUf(txtUf.getSelectedItem().toString());
-        insere.setNome(txtNome.getText());
-        insere.setSexo(txtSexo.getSelectedItem().toString());
-        insere.setEmail(txtEmail.getText());
-        insere.setTelefone(txtTelefone.getText());
-        insere.setCelular(txtCelular.getText());
-        insere.setRg(txtRg.getText());
-        insere.setCpf(txtCpf.getText());
-        insere.setData_nasci(txtData.getText());
-        insere.setPlaca(txtPlaca.getText());
-        insere.setModelo(txtModelo.getText());
-        insere.setFabricante(txtFab.getText());
-        insere.setAno_fab(txtAnoFab.getText());
-        insere.setAno_modelo(txtAnoMold.getText());
-        insere.setCor(txtCor.getText());
-        insere.setKm(Integer.parseInt(txtKm.getText()));
-        dao.incluiClient(insere);
-        
-        txtLogra.setText("");
-        txtBairro.setText("");
-        txtNumero.setText("");
-        txtCep.setText("");
-        txtCidade.setText("");
-        txtComple.setText("");
-        txtUf.setSelectedIndex(0);
-        txtNome.setText("");
-        txtSexo.setSelectedIndex(0);
-        txtEmail.setText("");
-        txtTelefone.setText("");
-        txtCelular.setText("");
-        txtRg.setText("");
-        txtCpf.setText("");
-        txtData.setText("");
-        txtPlaca.setText("");
-        txtModelo.setText("");
-        txtFab.setText("");
-        txtAnoFab.setText("");
-        txtAnoMold.setText("");
-        txtCor.setText("");
-        txtKm.setText("");
+
+        if (txtNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Nome.");
+        }
+        else if (txtCpf.getText().equals("   .   .   -  ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo CPF.");
+        }
+        else if (txtData.getText().equals("  /  /    ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Data de nascimento.");
+        }
+        else if (txtTelefone.getText().equals("(  )     -    ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Telefone.");
+        }
+        else if (txtSexo.getSelectedItem().toString().equals("Selecione")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Sexo.");
+        }
+        else if (txtRg.getText().equals("  .   .   - ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Rg.");
+        }
+        else if (txtCelular.getText().equals("(  )      -    ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Celular.");
+        }
+        else if (txtEmail.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo E-mail.");
+        }
+        else if (txtCep.getText().equals("     -   ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo CEP.");
+        }
+        else if (txtLogra.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Logradouro.");
+        }
+        else if (txtNumero.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Número.");
+        }
+        else if (txtComple.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Complemento.");
+        }
+        else if (txtBairro.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Bairro.");
+        }
+        else if (txtCidade.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o Cidade.");
+        }
+        else if (txtComple.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Complemento.");
+        }
+        else if (txtUf.getSelectedItem().toString().equals("Selecione")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo UF.");
+        }
+        else if (txtPlaca.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Placa.");
+        }
+        else if (txtFab.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Fabricante.");
+        }
+        else if (txtCor.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Cor.");
+        }
+        else if (txtModelo.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Modelo.");
+        }
+        else if (txtAnoModelo.getText().equals("    ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Ano Modelo.");
+        }
+        else if (txtKm.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo KM.");
+        }
+        else if (txtAnoFab.getText().equals("    ")){
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Ano Fabricação.");
+        }
+        else{
+            insere.setLogradouro(txtLogra.getText());
+            insere.setBairro(txtBairro.getText());
+            insere.setNumero(Integer.parseInt(txtNumero.getText()));
+            insere.setCep(txtCep.getText());
+            insere.setCidade(txtCidade.getText());
+            insere.setComplemento(txtComple.getText());
+            insere.setUf(txtUf.getSelectedItem().toString());
+            insere.setNome(txtNome.getText());
+            insere.setSexo(txtSexo.getSelectedItem().toString());
+            insere.setEmail(txtEmail.getText());
+            insere.setTelefone(txtTelefone.getText());
+            insere.setCelular(txtCelular.getText());
+            insere.setRg(txtRg.getText());
+            insere.setCpf(txtCpf.getText());
+            insere.setData_nasci(txtData.getText());
+            insere.setPlaca(txtPlaca.getText());
+            insere.setModelo(txtModelo.getText());
+            insere.setFabricante(txtFab.getText());
+            insere.setAno_fab(txtAnoFab.getText());
+            insere.setAno_modelo(txtAnoModelo.getText());
+            insere.setCor(txtCor.getText());
+            insere.setKm(Integer.parseInt(txtKm.getText()));
+            dao.incluiClient(insere);
+
+            txtLogra.setText("");
+            txtBairro.setText("");
+            txtNumero.setText("");
+            txtCep.setText("");
+            txtCidade.setText("");
+            txtComple.setText("");
+            txtUf.setSelectedIndex(0);
+            txtNome.setText("");
+            txtSexo.setSelectedIndex(0);
+            txtEmail.setText("");
+            txtTelefone.setText("");
+            txtCelular.setText("");
+            txtRg.setText("");
+            txtCpf.setText("");
+            txtData.setText("");
+            txtPlaca.setText("");
+            txtModelo.setText("");
+            txtFab.setText("");
+            txtAnoFab.setText("");
+            txtAnoModelo.setText("");
+            txtCor.setText("");
+            txtKm.setText("");
+        }
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
@@ -1176,8 +1260,8 @@ public class cliente extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane29;
     private javax.swing.JTextPane jTextPane6;
     private javax.swing.JPasswordField senha3;
-    private javax.swing.JTextField txtAnoFab;
-    private javax.swing.JTextField txtAnoMold;
+    private javax.swing.JFormattedTextField txtAnoFab;
+    private javax.swing.JFormattedTextField txtAnoModelo;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextPane txtBairro3;
     private javax.swing.JFormattedTextField txtCelular;

@@ -502,13 +502,13 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
         funcionarioDAO dao = new funcionarioDAO();
         
         if (txtUsuario.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Você não preencheu o campo usuário");
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Usuário");
         }
         else if (txtSenha.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Você não preencheu o campo senha.");
         }
         else if (txtNome.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Você não preencheu o campo nome.");
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Nome.");
         }
         else if (txtCpf.getText().equals("   .   .   -  ")){
             JOptionPane.showMessageDialog(null, "Você não preencheu o campo CPF.");
@@ -532,7 +532,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Você não preencheu o campo UF dos dados pessoais.");
         }
         else if (txtCelular.getText().equals("(  )     -    ")){
-            JOptionPane.showMessageDialog(null, "Você não preencheu o campo telefone.");
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Celular.");
         }
         else if (txtCep.getText().equals("     -   ")){
             JOptionPane.showMessageDialog(null, "Você não preencheu o campo CEP.");
@@ -553,7 +553,7 @@ public class NovoUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Você não preencheu o campo UF do endereço.");
         }
         else if (txtComple.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Você não preencheu o campo complemento.");
+            JOptionPane.showMessageDialog(null, "Você não preencheu o campo Complemento.");
         }
         else if (txtFuncao.getSelectedItem().toString().equals("Selecione")){
             JOptionPane.showMessageDialog(null, "Você não preencheu o campo Função.");

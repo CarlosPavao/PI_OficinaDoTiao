@@ -1405,7 +1405,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtAnoFab" min="-2" pref="127" max="-2" attributes="0"/>
+                              <Component id="txtAnoFab" min="-2" pref="118" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1427,7 +1427,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel58" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtAnoMold" min="-2" pref="153" max="-2" attributes="0"/>
+                                      <Component id="txtAnoModelo" min="-2" pref="153" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -1468,8 +1468,8 @@
                               <Component id="txtModelo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jLabel58" alignment="3" max="32767" attributes="0"/>
-                              <Component id="txtAnoMold" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtAnoModelo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel57" alignment="3" pref="27" max="32767" attributes="0"/>
@@ -1551,11 +1551,21 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtModelo">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtAnoMold">
-            </Component>
             <Component class="javax.swing.JTextField" name="txtKm">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtAnoFab">
+            <Component class="javax.swing.JFormattedTextField" name="txtAnoModelo">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                  <Format format="####" subtype="-1" type="5"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtAnoFab">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                  <Format format="####" subtype="-1" type="5"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
