@@ -18,10 +18,10 @@ import java.util.logging.Logger;
  * @author Alex
  */
 public class connectionFactory {
-private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/oficina";
-    private static final String USER = "root";
-    private static final String PASS = "";
+    private static final String USER = "oficina";
+    private static final String PASS = "oficina2020";
 
     public static Connection getConnection() {
         try {

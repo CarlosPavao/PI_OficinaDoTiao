@@ -70,6 +70,7 @@ public class OrdemDeServico extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Ordem de serviço");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
